@@ -9,13 +9,13 @@ import { findMetadataAddress } from "./pda";
 
 import { payer } from "./config";
 
-describe("token-test", () => {
+describe("spl-token-minter", () => {
 	// it("Creates the Mint Account!", async () => {
 	// 	const args = {
-	// 		name: "Disappointed Fan",
-	// 		uri: "https://raw.githubusercontent.com/Calyptus-Learn/workshops/main/solana/meme-token/metadata.json",
-	// 		symbol: "DSF",
-	// 		supply: new BN(1_000_000),
+	// 		name: "Bonk INU DEV",
+	// 		uri: "https://idylufmhksp63vptfnctn2qcjphffwwryc5cbw4wd2xnyiqzf3ga.arweave.net/QPC6FYdUn-3V8ytFNuoCS85S2tHAuiDblh6u3CIZLsw",
+	// 		symbol: "Bonk",
+	// 		supply: new BN(1_000_000_000),
 	// 		decimals: 9,
 	// 	};
 	// 	const mint = anchor.web3.Keypair.generate();
@@ -37,28 +37,29 @@ describe("token-test", () => {
 	// 	);
 	// });
 
-	// it("Mints Tokens!", async () => {
-	// 	const args = {
-	// 		amount: new BN(1), // mint once DSF token
-	// 	};
-	// 	const recipientTokenAccount = getAssociatedTokenAddressSync(
-	// 		nftMint,
-	// 		payer.publicKey
-	// 	);
-	// 	const txHash = await program.methods
-	// 		.mint(args)
-	// 		.accounts({
-	// 			payer: anchor.AnchorProvider.env().wallet.publicKey,
-	// 			mint: nftMint,
-	// 			recipientTokenAccount,
-	// 			tokenProgram: TOKEN_PROGRAM_ID,
-	// 			systemProgram: SystemProgram.programId,
-	// 		})
-	// 		.rpc({ skipPreflight: true });
-	// 	console.log(
-	// 		`mint tx Hash: https://explorer.solana.com/tx/${txHash}?cluster=devnet`
-	// 	);
-	// });
+	it("Mints Tokens!", async () => {
+		const args = {
+			// amount: new BN(1_000_000_000), // mint one bonk
+			amount: new BN(100_000_000_000), // mint 100 bonk
+		};
+		const recipientTokenAccount = getAssociatedTokenAddressSync(
+			nftMint,
+			payer.publicKey
+		);
+		const txHash = await program.methods
+			.mint(args)
+			.accounts({
+				payer: anchor.AnchorProvider.env().wallet.publicKey,
+				mint: nftMint,
+				recipientTokenAccount,
+				tokenProgram: TOKEN_PROGRAM_ID,
+				systemProgram: SystemProgram.programId,
+			})
+			.rpc({ skipPreflight: true });
+		console.log(
+			`mint tx Hash: https://explorer.solana.com/tx/${txHash}?cluster=devnet`
+		);
+	});
 
 	// it("Transfers Tokens!", async () => {
 	// 	const args = {

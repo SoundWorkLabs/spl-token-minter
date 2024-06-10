@@ -9,5 +9,5 @@ export const METADATA_PROGRAM_ID = new PublicKey(
 );
 
 export const nftMint = new PublicKey(
-	"A1MsBpWbyHFPBGzk5WWz6KMDCWeLRk5WjPdBppuoNuca"
+	"BpBqiAoNFYVZr8vr3V5CHFX3HkRwnihNcKnzvxAEZ38e"
 );

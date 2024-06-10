@@ -3,7 +3,7 @@ import * as anchor from "@coral-xyz/anchor";
 import dotenv from "dotenv";
 import { readFileSync } from "fs";
 
-import { TokenTest } from "../target/types/token_test";
+import { SplTokenMinter } from "../target/types/spl_token_minter";
 import { PROGRAM_ID } from "./constants";
 
 dotenv.config();
@@ -14,11 +14,13 @@ export const connection = new anchor.web3.Connection(
 	`https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
 );
 
+// ! your error might come from not changing this path
 const idl = JSON.parse(
-	readFileSync(
-		"/home/jimii/Documents/web3/solana/token-test/target/idl/token_test.json",
-		"utf8"
-	)
+	// readFileSync(
+	// 	"/home/jimii/Documents/web3/solana/spl-token-minter/target/idl/spl_token_minter.json",
+	// 	"utf8"
+	// )
+	readFileSync("./target/idl/spl_token_minter.json", "utf8")
 );
 
 export const provider = new anchor.AnchorProvider(
@@ -31,4 +33,4 @@ export const program = new anchor.Program(
 	idl,
 	PROGRAM_ID,
 	provider
-) as anchor.Program<TokenTest>;
+) as anchor.Program<SplTokenMinter>;

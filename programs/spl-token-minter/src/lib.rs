@@ -9,10 +9,10 @@ pub use constants::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("CkrrcbKYHcBj8ozt79rVtKcrQ6iChsXWCraUPe6khynz");
+declare_id!("2JdPJfQSVt7Y2xEZdv1bENsLizPn3a7KxoWgsu8Caf7h");
 
 #[program]
-pub mod token_test {
+pub mod spl_token_minter {
     use super::*;
 
     pub fn create(ctx: Context<CreateToken>, args: CreateTokenArgs) -> Result<()> {
