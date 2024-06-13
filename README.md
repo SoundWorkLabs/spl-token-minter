@@ -1,4 +1,4 @@
-# Solana Token Test
+# Solana Token Minter
 
 This Solana program allows you to create, mint and transfer tokens.
 
